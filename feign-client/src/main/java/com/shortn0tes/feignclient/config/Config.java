@@ -1,12 +1,11 @@
-package com.shortn0tes.feignexample.config;
+package com.shortn0tes.feignclient.config;
 
-import com.shortn0tes.feignexample.feign.UserClient;
+import com.shortn0tes.feignclient.feign.UserClient;
 import feign.Feign;
 import feign.Logger;
 import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
 import feign.ribbon.LoadBalancingTarget;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.cloud.netflix.feign.support.SpringMvcContract;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;

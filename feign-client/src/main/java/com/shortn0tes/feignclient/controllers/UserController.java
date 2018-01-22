@@ -1,8 +1,8 @@
-package com.shortn0tes.feignexample.controllers;
+package com.shortn0tes.feignclient.controllers;
 
 import com.netflix.config.ConfigurationManager;
-import com.shortn0tes.feignexample.feign.UserClient;
-import com.shortn0tes.feignexample.model.User;
+import com.shortn0tes.feignclient.feign.UserClient;
+import com.shortn0tes.feignclient.model.User;
 import java.io.IOException;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -28,8 +28,9 @@ public class UserController {
 	@RequestMapping("/create")
 	@ResponseBody
 	String create() {
-		User user = userClient.getUser(1L);
+		User user = new User().randomize();
 		user.setId(null);
+
 		user = userClient.createUser(user);
 
 		return String.format("Created a user with id %d", user.getId());
@@ -46,9 +47,10 @@ public class UserController {
 	@RequestMapping("/update")
 	@ResponseBody
 	String update() {
-		User user = userClient.getUser(1L);
+		User user = new User().randomize();
 		String oldName = user.getName();
 		user.setName("John");
+
 		userClient.updateUser(1L, user);
 
 		return String.format("Update successful. User id: %d, old name: %s, new name: %s",

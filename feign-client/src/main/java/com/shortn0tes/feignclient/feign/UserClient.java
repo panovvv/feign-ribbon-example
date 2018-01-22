@@ -1,6 +1,6 @@
-package com.shortn0tes.feignexample.feign;
+package com.shortn0tes.feignclient.feign;
 
-import com.shortn0tes.feignexample.model.User;
+import com.shortn0tes.feignclient.model.User;
 import java.util.List;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
