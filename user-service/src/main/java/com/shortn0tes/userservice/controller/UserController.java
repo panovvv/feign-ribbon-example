@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -57,7 +59,8 @@ public class UserController {
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/users/{userId}")
-	void deleteUser(@PathVariable("userId") Long userId) {
+	ResponseEntity deleteUser(@PathVariable("userId") Long userId) {
 		LOGGER.info(String.format("Deleted user with id %d from this instance", userId));
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }
